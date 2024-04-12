@@ -1,4 +1,5 @@
-# RTMDET https://github.com/open-mmlab/mmdetection/tree/3.x/configs/rtmdet 在snpe部署
+# RTMDET在snpe部署
+RTMDET: https://github.com/open-mmlab/mmdetection/tree/3.x/configs/rtmdet 
 
 RTMDET与其他算法的推理过程基本相同，主要在于HardSigmod算子SNPE不支持，并且这个算子比较简单，就借助snpe的udo自己实现了一下。这里主要记录snpe udo的使用过程。  
 官方文档：https://developer.qualcomm.com/sites/default/files/docs/snpe/usergroup2.html
