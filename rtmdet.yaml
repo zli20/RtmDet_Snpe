@@ -1,0 +1,36 @@
+%YAML:1.0
+---
+model_path: "/home/zli/Documents/deeplearning/code_mmpose_snpe/models/rtmdet_tiny_640_210.dlc"
+# model_path: "/home/zli/Documents/deeplearning/code_mmpose_snpe/models/rtmdet_nano_320_210.dlc"
+model_input_layer_name: ["input"]
+
+model_output_layer_name: ["Gather_538", "Reshape_550"]
+#model_output_layer_name: ["Gather_639", "Reshape_651"]
+
+model_output_tensor_name: ["dets", "labels"]
+
+model_input_width: 640
+model_input_hight: 640
+#model_input_width: 320
+#model_input_hight: 320
+
+moudel_input_shape: [1, 640, 640, 3]
+#moudel_input_shape: [1, 320, 320, 3]
+
+moudel_output_shape: [ [1, 300, 4], [1, 300]]
+#moudel_output_shape: [ [1, 100, 4], [1, 100，1]]
+
+# 0->snpe 1->onnx 2->ncnn 3->dnn
+framework: 0
+# 0->cpu 1->gpu 2->dsp 3->aip
+runtime: 0
+
+#nms parameter
+target_conf_th: 0.5
+nms_th: 0.2
+
+model_with_nms: true
+udo_list: ["/home/zli/Documents/deeplearning/code_mmpose_snpe/snpe_udo/libUdoHardSigmodUdoPackageReg.so"]
+
+
+

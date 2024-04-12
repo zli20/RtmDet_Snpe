@@ -1,0 +1,24 @@
+{
+    "HardSigmodUdo": {
+        "Operators": [
+            {
+                "type": "HardSigmoid",
+                "inputs": [
+                    {
+                 	"name": "HardSigmod_input",
+                        "per_core_data_types": {"CPU": "FLOAT_32", "GPU": "FLOAT_32", "DSP":"UINT_8"}
+                    }
+                ],
+                "outputs": [
+                    {
+			"name": "HardSigmod_output",
+                        "per_core_data_types": {"CPU": "FLOAT_32", "GPU": "FLOAT_32", "DSP":"UINT_8"}
+                    }
+                ],
+                "core_types": ["CPU", "GPU", "DSP"]
+            }
+        ],
+        "UDO_PACKAGE_NAME": "HardSigmodUdoPackage"
+    }
+}
+
