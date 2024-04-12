@@ -2,21 +2,24 @@
 
 #include "RtmDet.h"
 
+int plantform;
 
 int main(int argc, char* argv[]) {
-    if (argc < 3) {
-        std::cerr << "Usage: " << argv[0] << " string <cfg path> " << " string <input path> " << std::endl;
+    if (argc < 4) {
+        std::cerr << "Usage: " << argv[0]  << " int <platdorm>" << " string <cfg path> " << " string <input path> " << std::endl;
         return -1;
     }
 
+    plantform = std::stoi(argv[1]);
+
     std::string cfg_path;
-    cfg_path = argv[1];
+    cfg_path = argv[2];
     std::cout << "cfg path: " << cfg_path << std::endl;
     Maincfg& cfg = Maincfg::instance();
     cfg.LoadCfg(cfg_path);
 
     std::string img_path;
-    img_path = argv[2];
+    img_path = argv[3];
     std::cout << "inputpath: " << img_path << std::endl;
     // std::string img_path = "/yolov8_pose_snpe/images/a.jpg";
 

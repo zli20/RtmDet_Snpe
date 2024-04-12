@@ -44,7 +44,7 @@ void RtmDet::postProcessing(std::vector<DET_RESULT> &_results, const float det_s
 
         const cv::Mat boxes_mat = cv::Mat(cv::Size(box_shape[1], box_shape[2]), CV_32F, boxptr);
         cv::Mat scores_mat = cv::Mat(cv::Size(cls_shape[1], cls_shape[2]), CV_32F, clsptr);
-        cvSigmoid_(scores_mat);
+        utils::sigmoid_mat(scores_mat);
 
         auto boxes_pdata = reinterpret_cast<float*>(boxes_mat.data);
         auto scores_pdata = reinterpret_cast<float*>(scores_mat.data);
@@ -133,8 +133,8 @@ void RtmDet::drawResult(cv::Mat &img, const std::vector<DET_RESULT> &results) {
         cv::rectangle(img, boxxs, cv::Scalar(0, 0, 255), 1, 8);
 
         // 在目标框左上角标识目标类别以及概率
-        if (result.label >= 0 && result.label < static_cast<int>(cocoClassNamesList.size())) {
-            std::string label = cocoClassNamesList[result.label] + ":" + std::to_string(result.confidence);
+        if (result.label >= 0 && result.label < static_cast<int>(utils::cocoClassNamesList.size())) {
+            std::string label = utils::cocoClassNamesList[result.label] + ":" + std::to_string(result.confidence);
             int baseLine;
             cv::Size labelSize = cv::getTextSize(label, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
             top = std::max(top, labelSize.height);

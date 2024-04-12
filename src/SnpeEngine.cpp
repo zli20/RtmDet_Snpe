@@ -53,7 +53,7 @@ void SnpeEngine::setruntime(const int platform) {
 void SnpeEngine::preProcessing(cv::Mat &img, float & det_scale, bool padding, bool normalize, bool mean, bool bgr2rgb) const{
     det_scale=1.0;
     if(img.size() != cv::Size(_model_input_width, _model_input_height)) {
-        if(padding){resize_padding(img, det_scale, cv::Size(_model_input_width, _model_input_height));}
+        if(padding){utils::resize_padding(img, det_scale, cv::Size(_model_input_width, _model_input_height));}
         else{cv::resize(img, img, cv::Size(_model_input_height, _model_input_width));}
 
     }

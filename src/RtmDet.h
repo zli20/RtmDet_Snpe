@@ -5,6 +5,8 @@
 #include "Datatype.h"
 #include "Maincfg.h"
 
+extern int plantform;
+
 class RtmDet : public SnpeEngine{
 public:
     using ANCHOR = struct anchor{
@@ -17,9 +19,13 @@ public:
 
         this->setUdoPkg(Maincfg::instance().udo_list);
         // initialization models
-        if (init(Maincfg::instance().model_path, Maincfg::instance().runtime) != 0) {
+//        if (init(Maincfg::instance().model_path, Maincfg::instance().runtime) != 0) {
+//            throw std::runtime_error("Faild to init model");
+//        }
+        if (init(Maincfg::instance().model_path, plantform) != 0) {
             throw std::runtime_error("Faild to init model");
         }
+
         this->target_conf_th = Maincfg::instance().target_conf_th;
         this->nms_th = Maincfg::instance().nms_th;
     }
